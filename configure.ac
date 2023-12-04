@@ -29,6 +29,7 @@ AC_DEFINE_UNQUOTED(SOCKET_TYPE,int)
 # User specified optional packages
 AC_ARG_WITH([curses-old-keys],AS_HELP_STRING([--with-curses-old-keys],[curses terminal will use old key handler (default=no)]),[ac_cv_use_old_keys=$withval],[ac_cv_use_old_keys=no]) AC_CACHE_CHECK([whether to use old key handler],[ac_cv_use_old_keys], [ac_cv_use_old_keys=no])
 
+AC_SEARCH_LIBS(nodelay, [ncurses tinfo])
 # run AC_CHECK_LIB this way to avoid linking curses into every executable
 AC_CHECK_LIB(ncurses, initscr, CURSES_LIB=-lncurses)
 if test "$ac_cv_lib_ncurses_initscr" != "yes"
